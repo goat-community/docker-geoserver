@@ -1,0 +1,7 @@
+[template]
+src = "root.xml.tmpl"
+dest = "/tmp/root.xml"
+keys = [
+    "/",
+    "/",
+]

@@ -1,0 +1,7 @@
+[template]
+src = "geoserver.xml.tmpl"
+dest = "/usr/local/tomcat/conf/Catalina/localhost/geoserver.xml"
+keys = [
+    "/",
+    "/",
+]

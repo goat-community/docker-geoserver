@@ -1,0 +1,7 @@
+
+[template]
+src = "web.xml.tmpl"
+dest = "/usr/local/geoserver/WEB-INF/web.xml"
+keys = [
+    "/"
+]
