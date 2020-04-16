@@ -31,7 +31,7 @@ RUN mkdir -p /etc/condf/{conf.d,templates} \
 
 # Because my internet is slow as fuck
 WORKDIR "/usr/local/geoserver"
-RUN	&& wget http://sourceforge.net/projects/geoserver/files/GeoServer/${GEOSERVER_V}/geoserver-${GEOSERVER_V}-war.zip \
+RUN	--quiet wget http://sourceforge.net/projects/geoserver/files/GeoServer/${GEOSERVER_V}/geoserver-${GEOSERVER_V}-war.zip \
     && echo "${GEOSERVER_SHA} *geoserver-${GEOSERVER_V}-war.zip" | sha256sum -c - \
     && unzip geoserver-${GEOSERVER_V}-war.zip \
 	&& unzip geoserver.war \
