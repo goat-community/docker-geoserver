@@ -1,5 +1,10 @@
 #!/bin/bash
 
+export CATALINA_OPTS="-server -Djava.awt.headless=true \
+	-Xms768m -Xmx1560m -XX:+UseConcMarkSweepGC -XX:NewSize=48m \
+	-DGEOSERVER_DATA_DIR=/var/local/geoserver"
+
+
 echo "[$(date '+%Y-%m-%d %H:%M:%S')] Templating files"
 
 if [[ -z ${GEOSERVER_CORS_ENABLE+x} ]]; then

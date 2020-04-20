@@ -38,11 +38,6 @@ RUN	wget --quiet http://sourceforge.net/projects/geoserver/files/GeoServer/${GEO
     && mv data/* ${GEOSERVER_DATA_DIR} \
 	&& rm -rf geoserver-${GEOSERVER_V}-war.zip geoserver.war target *.txt
 
-# Tomcat environment
-ENV CATALINA_OPTS "-server -Djava.awt.headless=true \
-	-Xms768m -Xmx1560m -XX:+UseConcMarkSweepGC -XX:NewSize=48m \
-	-DGEOSERVER_DATA_DIR=/var/local/geoserver"
-
 # Create tomcat user to avoid root access.
 RUN addgroup --gid 1099 tomcat && useradd -m -u 1099 -g tomcat tomcat \
     && chown -R tomcat:tomcat . \
