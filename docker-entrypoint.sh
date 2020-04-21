@@ -1,5 +1,8 @@
 #!/bin/bash
 
+echo "[$(date '+%Y-%m-%d %H:%M:%S')] Ensuring Geoserver can acess data directory"
+chown -R tomcat:tomcat /var/loca/geoserver
+
 export CATALINA_OPTS="-server -Djava.awt.headless=true \
 	-Xms768m -Xmx1560m -XX:+UseConcMarkSweepGC -XX:NewSize=48m \
 	-DGEOSERVER_DATA_DIR=/var/local/geoserver"
@@ -26,7 +29,7 @@ term_handler() {
 trap 'kill ${!}; term_handler' SIGTERM
 
 echo "[$(date '+%Y-%m-%d %H:%M:%S')] Starting geoserver.. "
-nohup /usr/local/tomcat/bin/catalina.sh run > /tmp/tomcat.log 2>&1 &
+su tomcat -c "nohup /usr/local/tomcat/bin/catalina.sh run > /tmp/tomcat.log 2>&1" &
 pid="$!"
 
 

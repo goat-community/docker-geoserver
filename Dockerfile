@@ -56,5 +56,3 @@ COPY templates/web.xml.tmpl /etc/confd/templates/web.xml.tmpl
 
 COPY docker-entrypoint.sh /
 ENTRYPOINT [ "/docker-entrypoint.sh"]
-
-USER tomcat
