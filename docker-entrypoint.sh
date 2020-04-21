@@ -1,7 +1,7 @@
 #!/bin/bash
 
 echo "[$(date '+%Y-%m-%d %H:%M:%S')] Ensuring Geoserver can acess data directory"
-chown -R tomcat:tomcat /var/loca/geoserver
+chown -R tomcat:tomcat /var/local/geoserver
 
 export CATALINA_OPTS="-server -Djava.awt.headless=true \
 	-Xms768m -Xmx1560m -XX:+UseConcMarkSweepGC -XX:NewSize=48m \
